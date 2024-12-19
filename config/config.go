@@ -1,8 +1,5 @@
 package config
 
-// node .env
-// env -> toml
-
 import (
 	"os"
 
@@ -11,7 +8,7 @@ import (
 
 type Config struct {
 	Server struct {
-		Port int64
+		Port string
 	}
 }
 
