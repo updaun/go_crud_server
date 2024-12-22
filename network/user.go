@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sync"
 
+	"example.com/m/types"
 	"github.com/gin-gonic/gin"
 )
 
@@ -38,6 +39,13 @@ func (u *userRouter) create(c *gin.Context) {
 
 func (u *userRouter) get(c *gin.Context) {
 	fmt.Println("get 입니다")
+	u.router.okResponse(c, &types.UserResponse{
+		ApiResponse: &types.ApiResponse{
+			Result:      1,
+			Description: "성공입니다.",
+		},
+		User: nil,
+	})
 }
 
 func (u *userRouter) update(c *gin.Context) {
