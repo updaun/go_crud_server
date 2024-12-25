@@ -1,6 +1,9 @@
 package service
 
-import "example.com/m/repository"
+import (
+	"example.com/m/repository"
+	"example.com/m/types"
+)
 
 type User struct {
 	userRepository *repository.UserRepository
@@ -12,11 +15,10 @@ func newUserService(userRepository *repository.UserRepository) *User {
 	}
 }
 
-
 func (u *User) Create(newUser *types.User) error {
 	return u.userRepository.Create(newUser)
 }
-func (u *User) Update(beforeUser *type.User, updatedUser *types.User) error {
+func (u *User) Update(beforeUser *types.User, updatedUser *types.User) error {
 	return u.userRepository.Update(beforeUser, updatedUser)
 }
 func (u *User) Delete(user *types.User) error {
@@ -25,4 +27,3 @@ func (u *User) Delete(user *types.User) error {
 func (u *User) Get() []*types.User {
 	return u.userRepository.Get()
 }
-
